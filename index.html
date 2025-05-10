@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <title>Menu</title>
 </head>
 <body>
-    
+    <header>
+        <h3>Olá, Flávio</h3>
+        <button class="btn-open">
+            <i class="bi bi-list"></i>
+        </button>
+    </header>
+        <div class="menu hidden">
+            <div class="perfil">
+                <img src="https://avatars.githubusercontent.com/u/23580648?v=4" alt="perfil do usuário">
+                <h3>Sebastião Rodrigo</h3>
+            </div>
+            <button class="btn-close">
+                <i class="bi bi-box-arrow-in-down-left"></i>
+            </button>
+        </div>
+
+        <script>
+            let btnClose = document.querySelector(".btn-close")
+            let btnShow = document.querySelector(".btn-open")
+
+            btnShow.addEventListener("click", function() {
+                document.querySelector(".menu").classList.remove("hidden")
+            })
+
+            btnClose.addEventListener("click", function() {
+                document.querySelector(".menu").classList.add("hidden")
+            })
+        </script>
 </body>
 </html>
