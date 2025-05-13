@@ -2,3 +2,5 @@
 
 > * HTML5
 > * CSS3
+> * Javascript
+> * Bootstrap Icons
