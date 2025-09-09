@@ -3,7 +3,7 @@
 > * HTML5
 > * CSS3
 > * Javascript
-> * Bootstrap Icons
+> * Bootstrap Icons FontWasome
 
 #### Telas prontas
 
