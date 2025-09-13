@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Menu</title>
 </head>
 <body>
@@ -26,16 +27,41 @@
         </div>
 
         <script>
-            let btnClose = document.querySelector(".btn-close")
-            let btnShow = document.querySelector(".btn-open")
+                // --- Seleciona os elementos que vamos usar ---
+                const btnShow = document.querySelector(".btn-open");
+                const btnClose = document.querySelector(".btn-close");
+                const menu = document.querySelector(".menu");
 
-            btnShow.addEventListener("click", function() {
-                document.querySelector(".menu").classList.remove("hidden")
-            })
+                // --- Funções para deixar o código mais limpo ---
+                const openMenu = () => {
+                    menu.classList.remove("hidden");
+                };
 
-            btnClose.addEventListener("click", function() {
-                document.querySelector(".menu").classList.add("hidden")
-            })
+                const closeMenu = () => {
+                    menu.classList.add("hidden");
+                };
+
+                // --- Adiciona os eventos aos botões ---
+                btnShow.addEventListener("click", (event) => {
+                    // Impede que o clique no botão de abrir propague para o document
+                    // e feche o menu imediatamente.
+                    event.stopPropagation(); 
+                    openMenu();
+                });
+
+                btnClose.addEventListener("click", closeMenu);
+
+
+                // --- A MÁGICA ACONTECE AQUI ---
+                // Adiciona um evento de clique no documento inteiro.
+                document.addEventListener("click", (event) => {
+                    // Verifica duas coisas:
+                    // 1. O menu NÃO contém o elemento que foi clicado (ou seja, o clique foi fora do menu).
+                    // 2. O elemento clicado NÃO é o botão de abrir.
+                    if (!menu.contains(event.target) && event.target !== btnShow) {
+                        closeMenu();
+                    }
+                });
         </script>
 </body>
 </html>
